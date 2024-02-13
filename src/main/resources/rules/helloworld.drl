@@ -1,0 +1,19 @@
+package KieRule;
+import  org.beehyv.models.HelloWorld;
+
+
+
+rule "Hello World"
+  when
+    m : HelloWorld( status == HelloWorld.HELLO, message : message )
+  then
+    System.out.println( message + "Hello world rule" );
+
+end
+
+rule "Good Bye"
+  when
+    HelloWorld( status == HelloWorld.GOODBYE, message : message )
+  then
+    System.out.println( message +"Good Bye Rule" );
+end
